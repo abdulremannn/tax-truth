@@ -1,0 +1,930 @@
+[{
+  "_id": {
+    "$oid": "69bdb3c6e5397a28d4543e82"
+  },
+  "name": "401(h) Plan Add-on to DB Plan"
+},
+{
+  "_id": {
+    "$oid": "69bdb3c7e5397a28d4543e8a"
+  },
+  "name": "S-Corp 2% Shareholder Health Deduction"
+},
+{
+  "_id": {
+    "$oid": "69bdb3c8e5397a28d4543e92"
+  },
+  "name": "Maximizing QBI via Entity Restructure"
+},
+{
+  "_id": {
+    "$oid": "69bdb3c9e5397a28d4543e9a"
+  },
+  "name": "Key-Person Insurance Deduction"
+},
+{
+  "_id": {
+    "$oid": "69bdb3c9e5397a28d4543ea8"
+  },
+  "name": "Installment Sales to Defer Capital Gains"
+},
+{
+  "_id": {
+    "$oid": "69bdb3cae5397a28d4543ebf"
+  },
+  "name": "C-Corp Dividends Planning"
+},
+{
+  "_id": {
+    "$oid": "69bdb3cbe5397a28d4543ed0"
+  },
+  "name": "IC-DISC Export Income Deduction"
+},
+{
+  "_id": {
+    "$oid": "69bdb3cce5397a28d4543ed8"
+  },
+  "name": "100% Meals Deduction for Company Parties"
+},
+{
+  "_id": {
+    "$oid": "69bdb3cce5397a28d4543ee0"
+  },
+  "name": "Buy-Sell Stock Redemption with Life Insurance"
+},
+{
+  "_id": {
+    "$oid": "69bdb3cde5397a28d4543ee9"
+  },
+  "name": "Double-Up 401(k) Contributions for Spouses"
+},
+{
+  "_id": {
+    "$oid": "69bdb3cee5397a28d4543ef6"
+  },
+  "name": "Solo 401(k) / Traditional 401(k) + Profit Sharing"
+},
+{
+  "_id": {
+    "$oid": "69bdb3cfe5397a28d4543f03"
+  },
+  "name": "Grantor Retained Income Trust (GRIT)"
+},
+{
+  "_id": {
+    "$oid": "69bdb3d0e5397a28d4543f0c"
+  },
+  "name": "In-Kind Roth Conversion of Appreciated Assets"
+},
+{
+  "_id": {
+    "$oid": "69bdb3d0e5397a28d4543f15"
+  },
+  "name": "Pre-IPO Stock Options & AMT Planning"
+},
+{
+  "_id": {
+    "$oid": "69bdb3d1e5397a28d4543f23"
+  },
+  "name": "Cost Segregation"
+},
+{
+  "_id": {
+    "$oid": "69bdb3d2e5397a28d4543f30"
+  },
+  "name": "Health Savings Account (HSA) Optimization"
+},
+{
+  "_id": {
+    "$oid": "69bdb3d3e5397a28d4543f37"
+  },
+  "name": "Hiring Spouse in the Business"
+},
+{
+  "_id": {
+    "$oid": "69bdb3d4e5397a28d4543f3f"
+  },
+  "name": "Deduction Bunching with Donor-Advised Fund"
+},
+{
+  "_id": {
+    "$oid": "69bdb3d5e5397a28d4543f48"
+  },
+  "name": "Life Insurance Death Benefit Estate Exclusion"
+},
+{
+  "_id": {
+    "$oid": "69bdb3d6e5397a28d4543f51"
+  },
+  "name": "Roth Conversion Ladder"
+},
+{
+  "_id": {
+    "$oid": "69bdb3d6e5397a28d4543f5a"
+  },
+  "name": "Charitable Lead Annuity Trust (CLAT)"
+},
+{
+  "_id": {
+    "$oid": "69bdb3d7e5397a28d4543f62"
+  },
+  "name": "QBI Deduction Optimization"
+},
+{
+  "_id": {
+    "$oid": "69bdb3d8e5397a28d4543f69"
+  },
+  "name": "Employer-Provided Life Insurance"
+},
+{
+  "_id": {
+    "$oid": "69bdb3d8e5397a28d4543f70"
+  },
+  "name": "State Tax Deduction Workaround (SALT Cap)"
+},
+{
+  "_id": {
+    "$oid": "69bdb3d9e5397a28d4543f78"
+  },
+  "name": "Conservation Easement with Mineral Rights Retained"
+},
+{
+  "_id": {
+    "$oid": "69bdb3d9e5397a28d4543f81"
+  },
+  "name": "Irrevocable Life Insurance Trust (ILIT)"
+},
+{
+  "_id": {
+    "$oid": "69bdb3dae5397a28d4543f89"
+  },
+  "name": "Energy Efficient Home Credit (Builders)"
+},
+{
+  "_id": {
+    "$oid": "69bdb3dae5397a28d4543f90"
+  },
+  "name": "Tax-Free Gifts to Employees"
+},
+{
+  "_id": {
+    "$oid": "69bdb3dbe5397a28d4543f97"
+  },
+  "name": "Electing Out of Partnership Treatment"
+},
+{
+  "_id": {
+    "$oid": "69bdb3dbe5397a28d4543f9f"
+  },
+  "name": "Accelerated Depreciation via Leasehold Improvements"
+},
+{
+  "_id": {
+    "$oid": "69bdb3dce5397a28d4543fa8"
+  },
+  "name": "1033 Involuntary Conversion Deferral"
+},
+{
+  "_id": {
+    "$oid": "69bdb3dce5397a28d4543fb1"
+  },
+  "name": "Domestic Production Deduction for Film/TV"
+},
+{
+  "_id": {
+    "$oid": "69bdb3dde5397a28d4543fba"
+  },
+  "name": "Section 453A Interest Charge Planning (Large Installments)"
+},
+{
+  "_id": {
+    "$oid": "69bdb3dde5397a28d4543fc3"
+  },
+  "name": "Hire Children Under 18"
+},
+{
+  "_id": {
+    "$oid": "69bdb3dee5397a28d4543fcb"
+  },
+  "name": "Executive Bonus Plan (with Gross-Up)"
+},
+{
+  "_id": {
+    "$oid": "69bdb3dfe5397a28d4543fd2"
+  },
+  "name": "Deducting Start-Up Costs"
+},
+{
+  "_id": {
+    "$oid": "69bdb3dfe5397a28d4543fd9"
+  },
+  "name": "In-Plan Roth Rollover"
+},
+{
+  "_id": {
+    "$oid": "69bdb3e0e5397a28d4543fe0"
+  },
+  "name": "Business Credit Card Optimization"
+},
+{
+  "_id": {
+    "$oid": "69bdb3e0e5397a28d4543fe8"
+  },
+  "name": "Asset Sale to Intentionally Defective Grantor Trust (IDGT)"
+},
+{
+  "_id": {
+    "$oid": "69bdb3e2e5397a28d4543ff2"
+  },
+  "name": "1042 Rollover (Sale to ESOP)"
+},
+{
+  "_id": {
+    "$oid": "69bdb3e3e5397a28d4543ffc"
+  },
+  "name": "1202 Gain Exclusion Stacking via Multiple Entities"
+},
+{
+  "_id": {
+    "$oid": "69bdb3e4e5397a28d4544004"
+  },
+  "name": "Oil & Gas Intangible Drilling Costs (IDC)"
+},
+{
+  "_id": {
+    "$oid": "69bdb3e4e5397a28d4544010"
+  },
+  "name": "Group Health Insurance via C-Corp"
+},
+{
+  "_id": {
+    "$oid": "69bdb3e5e5397a28d454401d"
+  },
+  "name": "Non-Qualified Deferred Compensation (NQDC) Plan"
+},
+{
+  "_id": {
+    "$oid": "69bdb3e5e5397a28d4544026"
+  },
+  "name": "754 Basis Adjustment Election for Partnerships"
+},
+{
+  "_id": {
+    "$oid": "69bdb3e6e5397a28d454402f"
+  },
+  "name": "457(b) Non-Governmental Deferred Comp Plan"
+},
+{
+  "_id": {
+    "$oid": "69bdb3e6e5397a28d4544038"
+  },
+  "name": "Offshore Trust with U.S. Reporting Compliance"
+},
+{
+  "_id": {
+    "$oid": "69bdb3e7e5397a28d4544040"
+  },
+  "name": "Roth Conversions During Low-Income Years"
+},
+{
+  "_id": {
+    "$oid": "69bdb3e7e5397a28d4544047"
+  },
+  "name": "Section 1244 Stock Loss Deduction"
+},
+{
+  "_id": {
+    "$oid": "69bdb3e8e5397a28d454404e"
+  },
+  "name": "Equipment Leasing Under Section 179"
+},
+{
+  "_id": {
+    "$oid": "69bdb3e8e5397a28d4544055"
+  },
+  "name": "Reimbursement of Educational Assistance"
+},
+{
+  "_id": {
+    "$oid": "69bdb3fae5397a28d454405d"
+  },
+  "name": "Opportunity Zone Step-Up in Basis"
+},
+{
+  "_id": {
+    "$oid": "69bdb3fce5397a28d4544074"
+  },
+  "name": "Family Limited Partnership (FLP)"
+},
+{
+  "_id": {
+    "$oid": "69bdb3ffe5397a28d454408b"
+  },
+  "name": "Qualified Longevity Annuity Contract (QLAC)"
+},
+{
+  "_id": {
+    "$oid": "69bdb400e5397a28d4544093"
+  },
+  "name": "529 College Savings Plan"
+},
+{
+  "_id": {
+    "$oid": "69bdb402e5397a28d454409a"
+  },
+  "name": "Self-Rental to Business"
+},
+{
+  "_id": {
+    "$oid": "69bdb406e5397a28d45440a8"
+  },
+  "name": "Business Interest Deduction Optimization"
+},
+{
+  "_id": {
+    "$oid": "69bdb408e5397a28d45440b0"
+  },
+  "name": "Asset Protection Trust Structure (DAPT)"
+},
+{
+  "_id": {
+    "$oid": "69bdb40ae5397a28d45440b9"
+  },
+  "name": "Partial Asset Sale with Installment + 1031"
+},
+{
+  "_id": {
+    "$oid": "69bdb40ae5397a28d45440c1"
+  },
+  "name": "Entity Classification Election (Check-the-Box)"
+},
+{
+  "_id": {
+    "$oid": "69bdb40be5397a28d45440c8"
+  },
+  "name": "Business Use of Home by Partner"
+},
+{
+  "_id": {
+    "$oid": "69bdb40ee5397a28d45440cf"
+  },
+  "name": "Bonus Depreciation on Used Property"
+},
+{
+  "_id": {
+    "$oid": "69bdb412e5397a28d45440d7"
+  },
+  "name": "Intra-Family Loans with AFR"
+},
+{
+  "_id": {
+    "$oid": "69bdb416e5397a28d45440f5"
+  },
+  "name": "ESOP (Employee Stock Ownership Plan) Setup"
+},
+{
+  "_id": {
+    "$oid": "69bdb417e5397a28d45440fe"
+  },
+  "name": "Tax-Efficient Entity Merger"
+},
+{
+  "_id": {
+    "$oid": "69bdb419e5397a28d454410e"
+  },
+  "name": "Deferred Sales Trust (DST)"
+},
+{
+  "_id": {
+    "$oid": "69bdb41ae5397a28d454411e"
+  },
+  "name": "Section 754 Election after Partner Death"
+},
+{
+  "_id": {
+    "$oid": "69bdb41ce5397a28d4544126"
+  },
+  "name": "Gifting Appreciated Stock to Family"
+},
+{
+  "_id": {
+    "$oid": "69bdb41ee5397a28d454412e"
+  },
+  "name": "Prepaid Expenses via Management Company"
+},
+{
+  "_id": {
+    "$oid": "69bdb41fe5397a28d4544136"
+  },
+  "name": "Section §105 Medical Reimbursement Plan HRA Flexibility (QSEHRA, ICHRA, etc.)"
+},
+{
+  "_id": {
+    "$oid": "69bdb420e5397a28d454414b"
+  },
+  "name": "Roth 401(k) and Mega Backdoor Roth"
+},
+{
+  "_id": {
+    "$oid": "69bdb421e5397a28d4544160"
+  },
+  "name": "Lifetime Learning Credit"
+},
+{
+  "_id": {
+    "$oid": "69bdb424e5397a28d4544168"
+  },
+  "name": "Qualified Disability Trust (QDT) Deduction"
+},
+{
+  "_id": {
+    "$oid": "69bdb425e5397a28d4544177"
+  },
+  "name": "Installment Sale to ESOP with §1042 Rollover"
+},
+{
+  "_id": {
+    "$oid": "69bdb426e5397a28d4544190"
+  },
+  "name": "Defined Benefit Plan"
+},
+{
+  "_id": {
+    "$oid": "69bdb428e5397a28d45441a2"
+  },
+  "name": "S-Corp Reasonable Compensation Planning"
+},
+{
+  "_id": {
+    "$oid": "69bdb42be5397a28d45441a9"
+  },
+  "name": "Net Investment Income Tax (NIIT) Avoidance"
+},
+{
+  "_id": {
+    "$oid": "69bdb42de5397a28d45441b1"
+  },
+  "name": "Self-Directed IRA / Solo 401(k) for RE & Notes"
+},
+{
+  "_id": {
+    "$oid": "69bdb42fe5397a28d45441ba"
+  },
+  "name": "Tax-Efficient Sale via Grantor Retained Annuity Trust (GRAT)"
+},
+{
+  "_id": {
+    "$oid": "69bdb430e5397a28d45441c3"
+  },
+  "name": "Insurance-Dedicated Fund (IDF) within PPLI"
+},
+{
+  "_id": {
+    "$oid": "69bdb433e5397a28d45441cc"
+  },
+  "name": "Net Unrealized Appreciation (NUA) Tax Planning"
+},
+{
+  "_id": {
+    "$oid": "69bdb434e5397a28d45441d5"
+  },
+  "name": "Delaware Incomplete Non-Grantor Trust (DING)"
+},
+{
+  "_id": {
+    "$oid": "69bdb435e5397a28d45441dd"
+  },
+  "name": "Deductible Advisory/Planning Fees"
+},
+{
+  "_id": {
+    "$oid": "69bdb43ae5397a28d45441e5"
+  },
+  "name": "Credit Shelter Trust (Bypass Trust)"
+},
+{
+  "_id": {
+    "$oid": "69bdb43de5397a28d45441ee"
+  },
+  "name": "Private Placement Life Insurance (PPLI)"
+},
+{
+  "_id": {
+    "$oid": "69bdb441e5397a28d45441f6"
+  },
+  "name": "Domestic Production Activities Deduction"
+},
+{
+  "_id": {
+    "$oid": "69bdb445e5397a28d45441fd"
+  },
+  "name": "Foreign Tax Credit"
+},
+{
+  "_id": {
+    "$oid": "69bdb44ae5397a28d4544204"
+  },
+  "name": "Rental Loss Offset for Active Participation"
+},
+{
+  "_id": {
+    "$oid": "69bdb44de5397a28d454420c"
+  },
+  "name": "Intentionally Delaying QCD Recognition"
+},
+{
+  "_id": {
+    "$oid": "69bdb44fe5397a28d4544215"
+  },
+  "name": "Dynasty Trust for Multi-Gen Wealth Transfer"
+},
+{
+  "_id": {
+    "$oid": "69bdb451e5397a28d4544234"
+  },
+  "name": "Backdoor Roth IRA"
+},
+{
+  "_id": {
+    "$oid": "69bdb453e5397a28d454424a"
+  },
+  "name": "Employer 401(k) Match"
+},
+{
+  "_id": {
+    "$oid": "69bdb454e5397a28d4544260"
+  },
+  "name": "Captive Insurance (831(b))"
+},
+{
+  "_id": {
+    "$oid": "69bdb457e5397a28d4544275"
+  },
+  "name": "Fringe Benefits: Commuter/Transportation"
+},
+{
+  "_id": {
+    "$oid": "69bdb459e5397a28d454427c"
+  },
+  "name": "Home Equity Loan Interest Deduction (Biz)"
+},
+{
+  "_id": {
+    "$oid": "69bdb45ae5397a28d4544283"
+  },
+  "name": "American Opportunity Credit"
+},
+{
+  "_id": {
+    "$oid": "69bdb45be5397a28d454428a"
+  },
+  "name": "S-Corp Health Reimbursement Arrangement (QSEHRA)"
+},
+{
+  "_id": {
+    "$oid": "69bdb45ce5397a28d4544291"
+  },
+  "name": "Corporate Aircraft Deduction"
+},
+{
+  "_id": {
+    "$oid": "69bdb45de5397a28d4544298"
+  },
+  "name": "Reclassify Income to Capital Gains"
+},
+{
+  "_id": {
+    "$oid": "69bdb45ee5397a28d45442a0"
+  },
+  "name": "Private Annuity Sale to Children"
+},
+{
+  "_id": {
+    "$oid": "69bdb460e5397a28d45442be"
+  },
+  "name": "Cafeteria Plan"
+},
+{
+  "_id": {
+    "$oid": "69bdb461e5397a28d45442d2"
+  },
+  "name": "Accountable Plan (Reimbursement Plan)"
+},
+{
+  "_id": {
+    "$oid": "69bdb463e5397a28d45442e2"
+  },
+  "name": "Solo 401(k)"
+},
+{
+  "_id": {
+    "$oid": "69bdb464e5397a28d45442f4"
+  },
+  "name": "SIMPLE IRA"
+},
+{
+  "_id": {
+    "$oid": "69bdb465e5397a28d454430e"
+  },
+  "name": "Real Estate Professional Status (IRC §469)"
+},
+{
+  "_id": {
+    "$oid": "69bdb466e5397a28d454431f"
+  },
+  "name": "Bonus Depreciation Strategy — §168(k)"
+},
+{
+  "_id": {
+    "$oid": "69bdb466e5397a28d454433d"
+  },
+  "name": "Private Family Foundation"
+},
+{
+  "_id": {
+    "$oid": "69bdb46ae5397a28d454435f"
+  },
+  "name": "Management Company Structure"
+},
+{
+  "_id": {
+    "$oid": "69c26f23cdaa7f875cd42144"
+  },
+  "name": "Net Operating Loss (NOL) Carryforward"
+},
+{
+  "_id": {
+    "$oid": "69c26f23cdaa7f875cd4214a"
+  },
+  "name": "Section 280F — Luxury Auto Depreciation Cap"
+},
+{
+  "_id": {
+    "$oid": "69c26f34cdaa7f875cd42243"
+  },
+  "name": "Home Office / Administrative Office Deduction"
+},
+{
+  "_id": {
+    "$oid": "69c26f35cdaa7f875cd42246"
+  },
+  "name": "Business Travel Expenses"
+},
+{
+  "_id": {
+    "$oid": "69c26f35cdaa7f875cd42249"
+  },
+  "name": "Fringe Benefits (For C-corporations)"
+},
+{
+  "_id": {
+    "$oid": "69c26f36cdaa7f875cd42257"
+  },
+  "name": "Schedule C → S-Corp Conversion (SE Tax Protection)"
+},
+{
+  "_id": {
+    "$oid": "69c26f36cdaa7f875cd4225a"
+  },
+  "name": "S-Corporation to C-Corp (Profit Protection Strategy)"
+},
+{
+  "_id": {
+    "$oid": "69c26f37cdaa7f875cd4225d"
+  },
+  "name": "Profit-Sharing Retirement Plan"
+},
+{
+  "_id": {
+    "$oid": "69c26f37cdaa7f875cd42260"
+  },
+  "name": "Cash Balance Plan — IRC §401(a)"
+},
+{
+  "_id": {
+    "$oid": "69c26f38cdaa7f875cd42263"
+  },
+  "name": "Self-Directed Traditional Retirement Plan"
+},
+{
+  "_id": {
+    "$oid": "69c26f38cdaa7f875cd42266"
+  },
+  "name": "412(e)(3) Plans"
+},
+{
+  "_id": {
+    "$oid": "69c26f39cdaa7f875cd42269"
+  },
+  "name": "SEP IRA"
+},
+{
+  "_id": {
+    "$oid": "69c26f3bcdaa7f875cd4227d"
+  },
+  "name": "§1031 Exchange"
+},
+{
+  "_id": {
+    "$oid": "69c26f3ccdaa7f875cd4228c"
+  },
+  "name": "Short-Term Rentals (Active Participation Strategy)"
+},
+{
+  "_id": {
+    "$oid": "69c26f3ccdaa7f875cd4228f"
+  },
+  "name": "Research & Development Tax Credit"
+},
+{
+  "_id": {
+    "$oid": "69c26f3dcdaa7f875cd42292"
+  },
+  "name": "Self-Employed Health Insurance Premium Deduction"
+},
+{
+  "_id": {
+    "$oid": "69c26f3dcdaa7f875cd42295"
+  },
+  "name": "Self-Rental Grouping Strategy"
+},
+{
+  "_id": {
+    "$oid": "69c26f3ecdaa7f875cd42298"
+  },
+  "name": "Solo Owner Strategy (Health Care Planning)"
+},
+{
+  "_id": {
+    "$oid": "69c26f3ecdaa7f875cd4229b"
+  },
+  "name": "Small Business Health Insurance Tax Credit"
+},
+{
+  "_id": {
+    "$oid": "69c26f3fcdaa7f875cd4229e"
+  },
+  "name": "Business Use of Personal Vehicle Deduction"
+},
+{
+  "_id": {
+    "$oid": "69c26f3fcdaa7f875cd422a1"
+  },
+  "name": "Vacation / Second Home Business Strategy"
+},
+{
+  "_id": {
+    "$oid": "69c26f40cdaa7f875cd422a4"
+  },
+  "name": "Charitable Contributions Strategy"
+},
+{
+  "_id": {
+    "$oid": "69c26f41cdaa7f875cd422a7"
+  },
+  "name": "Section 179 Equipment Deduction"
+},
+{
+  "_id": {
+    "$oid": "69c26f41cdaa7f875cd422aa"
+  },
+  "name": "Film & Media Production Tax Incentives"
+},
+{
+  "_id": {
+    "$oid": "69c26f42cdaa7f875cd422ad"
+  },
+  "name": "Entity Structuring & Layering (Income Shifting)"
+},
+{
+  "_id": {
+    "$oid": "69c26f43cdaa7f875cd422cd"
+  },
+  "name": "Family Management Company"
+},
+{
+  "_id": {
+    "$oid": "69c26f44cdaa7f875cd422d8"
+  },
+  "name": "Holding Company Structure"
+},
+{
+  "_id": {
+    "$oid": "69c26f45cdaa7f875cd422db"
+  },
+  "name": "Mineral Rights Charitable Donation"
+},
+{
+  "_id": {
+    "$oid": "69c26f46cdaa7f875cd422e1"
+  },
+  "name": "Salary + Retirement Plan Restructure"
+},
+{
+  "_id": {
+    "$oid": "69c437e6870901c01b5a18c1"
+  },
+  "name": "§1366(d) Shareholder Basis Limitation Optimization"
+},
+{
+  "_id": {
+    "$oid": "69c43853870901c01b5a18ea"
+  },
+  "name": "§465 At‑Risk Limitation Review"
+},
+{
+  "_id": {
+    "$oid": "69c4388e870901c01b5a1908"
+  },
+  "name": "§469 Passive Activity Loss Release Strategy"
+},
+{
+  "_id": {
+    "$oid": "69c438d6870901c01b5a1931"
+  },
+  "name": "§168/§168(k) Depreciation Timing Optimization"
+},
+{
+  "_id": {
+    "$oid": "69c4393c870901c01b5a196d"
+  },
+  "name": "§172 Net Operating Loss Carryforward Planning (C‑Corp)"
+},
+{
+  "_id": {
+    "$oid": "69c43973870901c01b5a1996"
+  },
+  "name": "§704(d) Partner Basis Limitation Review"
+},
+{
+  "_id": {
+    "$oid": "69c51ed0c2965eadfe41b1a4"
+  },
+  "name": "S-Corp Shareholder Basis Restoration (§1366(d))"
+},
+{
+  "_id": {
+    "$oid": "69c51f21c2965eadfe41b1c8"
+  },
+  "name": "Passive Activity Loss — §469 Grouping Election"
+},
+{
+  "_id": {
+    "$oid": "69c51f5ac2965eadfe41b1e6"
+  },
+  "name": "§465 At-Risk Limitation Planning"
+},
+{
+  "_id": {
+    "$oid": "69c51f97c2965eadfe41b204"
+  },
+  "name": "Bonus Depreciation Timing Election in Loss Year (§168(k))"
+},
+{
+  "_id": {
+    "$oid": "69c52026c2965eadfe41b222"
+  },
+  "name": "Excess Business Loss Limitation Planning (§461(l))"
+},
+{
+  "_id": {
+    "$oid": "69c520f7c2965eadfe41b240"
+  },
+  "name": "NOL Carryforward Optimization & Utilization Planning (§172)"
+},
+{
+  "_id": {
+    "$oid": "69c52163c2965eadfe41b25e"
+  },
+  "name": "Partnership Basis Restoration & §704(d) Loss Planning"
+},
+{
+  "_id": {
+    "$oid": "69c52214c2965eadfe41b2c1"
+  },
+  "name": "Accountable Plan — Comprehensive Expense Capture in Loss Year"
+},
+{
+  "_id": {
+    "$oid": "69c526fec2965eadfe41b327"
+  },
+  "name": "Qualified Opportunity Zone Investment — Capital Gain Deferral in Loss Year"
+},
+{
+  "_id": {
+    "$oid": "69c5273dc2965eadfe41b350"
+  },
+  "name": "§382 NOL Limitation — Ownership Change Risk Assessment"
+},
+{
+  "_id": {
+    "$oid": "69c52831c2965eadfe41b397"
+  },
+  "name": "Qualified Improvement Property (QIP) — Depreciation in Loss Year"
+},
+{
+  "_id": {
+    "$oid": "69ca291b03832a709c4fa899"
+  },
+  "name": "Augusta Rule (IRC §280A(g))"
+}]

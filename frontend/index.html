@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>TaxTruth</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+:root{
+  --green:#0fa958; --green-dark:#0c8a48; --green-light:#e6f8ee;
+  --blue:#3b82f6; --blue-light:#e8f0fe;
+  --ink:#0b1210; --gray-900:#141b18; --gray-700:#4a5850; --gray-500:#7c8880;
+  --gray-300:#dfe6e1; --gray-100:#f4f7f5; --border:#e6ebe8;
+  --red:#e5484d; --amber:#f0a020;
+  --radius:16px; --shadow:0 1px 3px rgba(16,40,25,0.06), 0 1px 2px rgba(16,40,25,0.04);
+}
+*{box-sizing:border-box;}
+body{
+  font-family:'Inter',-apple-system,sans-serif;
+  background:linear-gradient(180deg,#eef3f5 0%, #e9f2ec 100%);
+  color:var(--gray-900); margin:0; padding:0 0 100px;
+}
+.topbar{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:20px 40px; max-width:1200px; margin:0 auto;
+}
+.brand{display:flex; align-items:center; gap:10px; font-weight:800; font-size:19px;}
+.brand .logo{
+  width:32px; height:32px; border-radius:9px; background:var(--green);
+  display:flex; align-items:center; justify-content:center; color:#fff; font-size:16px;
+}
+.tagline{color:var(--gray-500); font-size:13px; margin-top:2px;}
+main{max-width:1200px; margin:0 auto; padding:0 40px;}
+
+.stepper{display:flex; gap:8px; margin-bottom:28px; flex-wrap:wrap;}
+.step-pill{
+  padding:7px 14px; border-radius:20px; background:#fff; border:1px solid var(--border);
+  font-size:12.5px; font-weight:600; color:var(--gray-500); display:flex; align-items:center; gap:6px;
+}
+.step-pill.active{background:var(--green); color:#fff; border-color:var(--green);}
+.step-pill.done{background:var(--green-light); color:var(--green-dark); border-color:var(--green-light);}
+.step-pill .dot{width:6px;height:6px;border-radius:50%;background:currentColor;}
+
+.card{
+  background:#fff; border:1px solid var(--border); border-radius:var(--radius);
+  padding:26px 30px; margin-bottom:22px; box-shadow:var(--shadow);
+}
+.card-head{display:flex; align-items:center; gap:12px; margin-bottom:20px;}
+.card-icon{
+  width:38px; height:38px; border-radius:11px; background:var(--green-light);
+  display:flex; align-items:center; justify-content:center; color:var(--green-dark); flex-shrink:0;
+}
+.card h2{font-size:17px; font-weight:700; margin:0;}
+.card .card-sub{font-size:12.5px; color:var(--gray-500); margin-top:1px;}
+
+.grid{display:grid; grid-template-columns:1fr 1fr; gap:0 20px;}
+label{display:block; font-size:11.5px; font-weight:600; color:var(--gray-500); margin:12px 0 5px; text-transform:uppercase; letter-spacing:.03em;}
+input,select{
+  width:100%; padding:11px 13px; border:1.5px solid var(--gray-300); border-radius:10px;
+  font-family:inherit; font-size:14px; color:var(--gray-900); background:#fbfcfb; transition:.15s;
+}
+input:focus,select:focus{outline:none; border-color:var(--green); background:#fff; box-shadow:0 0 0 3px var(--green-light);}
+button{
+  margin-top:20px; padding:12px 24px; background:var(--green); color:#fff; border:none;
+  border-radius:11px; font-family:inherit; font-weight:600; font-size:14px; cursor:pointer;
+  transition:.15s; display:inline-flex; align-items:center; gap:8px;
+}
+button:hover{background:var(--green-dark); transform:translateY(-1px);}
+button:disabled{background:var(--gray-300); cursor:not-allowed; transform:none;}
+button.secondary{background:#fff; color:var(--gray-900); border:1.5px solid var(--gray-300);}
+button.secondary:hover{background:var(--gray-100); border-color:var(--gray-500);}
+
+.toast{
+  margin-top:14px; padding:12px 15px; background:var(--gray-100); border-radius:10px;
+  font-size:13px; color:var(--gray-700); display:none; align-items:center; gap:8px;
+}
+.toast.show{display:flex;}
+.toast.ok{background:var(--green-light); color:var(--green-dark);}
+.toast.err{background:#fdeaea; color:var(--red);}
+
+/* Report dashboard */
+#report-output{display:none;}
+.report-hero{
+  background:linear-gradient(135deg, var(--green) 0%, #0c8a48 100%);
+  border-radius:var(--radius); padding:32px 36px; margin-bottom:22px; color:#fff;
+  box-shadow:0 8px 24px rgba(15,169,88,0.25);
+}
+.report-hero .eyebrow{font-size:12px; opacity:.85; text-transform:uppercase; letter-spacing:.06em; font-weight:700;}
+.report-hero h2{font-size:26px; margin:6px 0 14px; font-weight:800;}
+.report-hero p{font-size:14.5px; line-height:1.6; opacity:.95; max-width:760px; margin:0;}
+
+.metrics-row{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:22px;}
+.metric-card{
+  background:#fff; border:1px solid var(--border); border-radius:14px; padding:20px 22px;
+  box-shadow:var(--shadow);
+}
+.metric-label{font-size:11.5px; color:var(--gray-500); text-transform:uppercase; letter-spacing:.04em; font-weight:700; display:flex; align-items:center; gap:6px;}
+.metric-value{font-size:26px; font-weight:800; margin-top:8px; color:var(--gray-900);}
+.metric-value.green{color:var(--green-dark);}
+.risk-badge{
+  display:inline-flex; align-items:center; gap:6px; padding:4px 11px; border-radius:20px;
+  font-size:12px; font-weight:700; margin-top:8px;
+}
+.risk-badge.Low{background:var(--green-light); color:var(--green-dark);}
+.risk-badge.Medium{background:#fff4de; color:#a06600;}
+.risk-badge.High{background:#fdeaea; color:var(--red);}
+
+.chart-card{margin-bottom:22px;}
+.chart-wrap{height:220px; position:relative;}
+
+.strategy-item{
+  border:1px solid var(--border); border-radius:14px; padding:20px 22px; margin-bottom:14px;
+  transition:.15s;
+}
+.strategy-item:hover{box-shadow:var(--shadow); border-color:var(--green-light);}
+.strategy-top{display:flex; justify-content:space-between; align-items:flex-start; gap:12px; margin-bottom:12px;}
+.strategy-top h3{font-size:15.5px; font-weight:700; margin:0; color:var(--gray-900);}
+.strategy-badges{display:flex; gap:6px; flex-shrink:0;}
+.savings-badge{
+  background:var(--green-light); color:var(--green-dark); font-size:12px; font-weight:700;
+  padding:4px 10px; border-radius:16px; white-space:nowrap;
+}
+.strategy-field{margin-bottom:9px; font-size:13.5px; line-height:1.6; color:var(--gray-700);}
+.strategy-field b{display:block; margin-bottom:2px; font-size:10.5px; text-transform:uppercase; letter-spacing:.04em; color:var(--gray-500); font-weight:700;}
+
+.action-plan-item{display:flex; gap:14px; padding:14px 0; border-bottom:1px solid var(--border); font-size:14px;}
+.action-plan-item:last-child{border-bottom:none;}
+.priority-badge{
+  background:var(--green); color:#fff; min-width:26px; height:26px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; flex-shrink:0;
+}
+.disclaimer{
+  margin-top:22px; padding:16px 18px; background:#fff8e6; border:1px solid #f0d98c;
+  border-radius:12px; font-size:12px; color:#7a5c00; line-height:1.6;
+}
+.export-row{display:flex; gap:10px; margin-top:22px;}
+.section-title{font-size:15px; font-weight:700; margin:0 0 16px; display:flex; align-items:center; gap:8px;}
+.spinner{
+  display:inline-block; width:15px; height:15px; border:2px solid #fff; border-top-color:transparent;
+  border-radius:50%; animation:spin .7s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg);}}
+.stat-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:22px;}
+.stat-card{
+  background:linear-gradient(160deg,#fff 0%, var(--green-light) 130%);
+  border:1px solid var(--border); border-radius:18px; padding:26px 24px;
+  box-shadow:var(--shadow); position:relative; overflow:hidden;
+}
+.stat-card .stat-num{font-size:38px; font-weight:800; color:var(--gray-900); line-height:1;}
+.stat-card .stat-title{font-size:13.5px; font-weight:700; margin-top:10px; color:var(--gray-900);}
+.stat-card .stat-desc{font-size:12.5px; color:var(--gray-600); margin-top:6px; line-height:1.55;}
+.stat-card .stat-brand{display:flex; align-items:center; gap:6px; margin-top:16px; font-size:12px; font-weight:700; color:var(--green-dark);}
+.hero-quote{
+  background:#fff; border:1px solid var(--border); border-radius:20px; padding:36px 40px;
+  margin-bottom:22px; box-shadow:var(--shadow); position:relative;
+}
+.hero-quote .eyebrow{font-size:11px; font-weight:800; letter-spacing:.08em; color:var(--green-dark); text-transform:uppercase;}
+.hero-quote blockquote{font-size:22px; font-weight:700; line-height:1.35; margin:14px 0 20px; color:var(--gray-900);}
+.hero-quote .author{display:flex; align-items:center; gap:10px;}
+.author-avatar{width:38px;height:38px;border-radius:50%;background:var(--green-light);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--green-dark);}
+.author-name{font-weight:700; font-size:13.5px;}
+.author-role{font-size:12px; color:var(--gray-500);}
+.feature-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px 24px; margin-bottom:22px;}
+.feature-item{display:flex; gap:12px;}
+.feature-icon{width:32px;height:32px;border-radius:9px;background:var(--gray-100);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gray-600);}
+.feature-item h4{font-size:13.5px; font-weight:700; margin:0 0 4px;}
+.feature-item p{font-size:12.5px; color:var(--gray-600); margin:0; line-height:1.5;}
+svg.icon{width:18px !important; height:18px !important; flex-shrink:0; display:inline-block; vertical-align:middle;}
+.card-icon svg.icon{width:19px !important; height:19px !important;}
+.metric-label svg.icon, .stat-brand svg.icon{width:14px !important; height:14px !important;}
+.section-title svg.icon{width:17px !important; height:17px !important;}
+button svg.icon{width:15px !important; height:15px !important;}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div>
+    <div class="brand"><span class="logo">T</span>TaxTruth</div>
+    <div class="tagline">AI-powered tax strategy analysis &amp; consultancy</div>
+  </div>
+</div>
+
+<main>
+
+<div class="stepper" id="stepper">
+  <div class="step-pill active" data-step="1"><span class="dot"></span>Create Client</div>
+  <div class="step-pill" data-step="2"><span class="dot"></span>Personal Info</div>
+  <div class="step-pill" data-step="3"><span class="dot"></span>Financials</div>
+  <div class="step-pill" data-step="4"><span class="dot"></span>Documents</div>
+  <div class="step-pill" data-step="5"><span class="dot"></span>Report</div>
+</div>
+
+<div class="card">
+  <div class="card-head">
+    <div class="card-icon"><svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg></div>
+    <div><h2>Create Client</h2><div class="card-sub">Start a new tax strategy engagement</div></div>
+  </div>
+  <div class="grid">
+    <div><label>Full Name</label><input id="c_name" placeholder="e.g. Hossein Edalat"></div>
+    <div><label>Email</label><input id="c_email" placeholder="e.g. client@email.com"></div>
+  </div>
+  <button onclick="createClient()"><span id="c_btn_content">Create Client</span></button>
+  <div class="toast" id="c_out"></div>
+</div>
+
+<div class="card">
+  <div class="card-head">
+    <div class="card-icon"><svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4V3a1 1 0 011-1h4a1 1 0 011 1v1"/><line x1="9" y1="10" x2="15" y2="10"/><line x1="9" y1="14" x2="15" y2="14"/></svg></div>
+    <div><h2>Personal Questionnaire</h2><div class="card-sub">Business structure &amp; household details</div></div>
+  </div>
+  <label>Client ID</label><input id="p_client_id" placeholder="1">
+  <div class="grid">
+    <div>
+      <label>Business Structure</label>
+      <select id="p_business_structure">
+        <option>Sole proprietorship</option><option>S-Corp</option><option>C-Corp</option><option>Partnership</option>
+      </select>
+    </div>
+    <div><label>Has 1120S</label><select id="p_has_1120s"><option value="false">No</option><option value="true">Yes</option></select></div>
+    <div><label>S-Corp Officer Comp ($)</label><input id="p_s_corp_officer_comp" type="number" value="0"></div>
+    <div><label>Employees Count</label><input id="p_employees_count" type="number" value="0"></div>
+    <div><label>Household Income ($)</label><input id="p_household_income" type="number" value="0"></div>
+    <div><label>Client Annual Compensation ($)</label><input id="p_client_annual_compensation" type="number" value="0"></div>
+    <div><label>No. of Children</label><input id="p_no_of_children" type="number" value="0"></div>
+    <div><label>Owns Practice Building</label><select id="p_owns_practice_building"><option value="false">No</option><option value="true">Yes</option></select></div>
+    <div><label>Building Purchase Price ($)</label><input id="p_building_purchase_price" type="number" value="0"></div>
+    <div><label>Has Rental Properties</label><select id="p_has_rental_properties"><option value="false">No</option><option value="true">Yes</option></select></div>
+    <div><label>RE Professional Hours</label><input id="p_real_estate_professional_hours" type="number" value="0"></div>
+    <div><label>Planned Equipment Purchase ($)</label><input id="p_planned_equipment_purchase" type="number" value="0"></div>
+  </div>
+  <button onclick="submitPersonal()"><span id="p_btn_content">Submit Questionnaire</span></button>
+  <div class="toast" id="p_out"></div>
+</div>
+
+<div class="card">
+  <div class="card-head">
+    <div class="card-icon"><svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.5c0-1.5 1.2-2.5 2.5-2.5s2.5.8 2.5 2c0 3-5 1.5-5 4.5 0 1.2 1.2 2 2.5 2s2.5-1 2.5-2.5"/></svg></div>
+    <div><h2>Financial Questionnaire</h2><div class="card-sub">Investments &amp; net worth</div></div>
+  </div>
+  <label>Client ID</label><input id="f_client_id" placeholder="1">
+  <div class="grid">
+    <div><label>Current Securities Investments ($)</label><input id="f_current_securities_investments" type="number" value="0"></div>
+    <div><label>C-Corp Retained Earnings ($)</label><input id="f_c_corp_retained_earnings" type="number" value="0"></div>
+    <div><label>Estimated Net Worth Range</label><input id="f_estimated_net_worth_range" placeholder="e.g. 1M-2M"></div>
+  </div>
+  <button onclick="submitFinancial()"><span id="f_btn_content">Submit Questionnaire</span></button>
+  <div class="toast" id="f_out"></div>
+</div>
+
+<div class="card">
+  <div class="card-head">
+    <div class="card-icon"><svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 3h7l5 5v13a1 1 0 01-1 1H7a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M14 3v5h5"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg></div>
+    <div><h2>Upload Document</h2><div class="card-sub">Tax returns, P&amp;L — text &amp; OCR extraction</div></div>
+  </div>
+  <label>Client ID</label><input id="d_client_id" placeholder="1">
+  <label>PDF File</label><input id="d_file" type="file" accept="application/pdf">
+  <button onclick="uploadDoc()"><span id="d_btn_content">Upload &amp; Extract</span></button>
+  <div class="toast" id="d_out"></div>
+</div>
+
+<div class="card">
+  <div class="card-head">
+    <div class="card-icon"><svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></svg></div>
+    <div><h2>Generate Report</h2><div class="card-sub">Rule engine + Graph RAG + AI analysis</div></div>
+  </div>
+  <label>Client ID</label><input id="r_client_id" placeholder="1">
+  <button id="r_btn" onclick="generateReport()"><span id="r_btn_content">Generate Strategy Report</span></button>
+  <div class="toast" id="r_out"></div>
+</div>
+
+<div id="report-output"></div>
+
+</main>
+
+<script>
+const BASE = "http://127.0.0.1:8000";
+const API_KEY = "dev-key-change-me";
+const HDRS = { "x-api-key": API_KEY };
+let lastReportId = null, lastClientId = null;
+
+function toast(el, msg, type="ok") {
+  el.className = "toast show " + type;
+  el.textContent = msg;
+}
+
+async function createClient() {
+  try {
+    const res = await fetch(`${BASE}/clients?client_name=${encodeURIComponent(c_name.value)}&client_email=${encodeURIComponent(c_email.value)}`, { method: "POST", headers: HDRS });
+    const data = await res.json();
+    if (!res.ok) return toast(c_out, JSON.stringify(data), "err");
+    toast(c_out, `Client created — ID: ${data.id}. Use this ID in the next steps.`, "ok");
+    markStepDone(1);
+    p_client_id.value = f_client_id.value = d_client_id.value = r_client_id.value = data.id;
+  } catch (e) { toast(c_out, e.message, "err"); }
+}
+
+async function submitPersonal() {
+  const body = {
+    business_structure: p_business_structure.value,
+    has_1120s: p_has_1120s.value === "true",
+    s_corp_officer_comp: Number(p_s_corp_officer_comp.value),
+    employees_count: Number(p_employees_count.value),
+    household_income: Number(p_household_income.value),
+    client_annual_compensation: Number(p_client_annual_compensation.value),
+    no_of_children: Number(p_no_of_children.value),
+    owns_practice_building: p_owns_practice_building.value === "true",
+    building_purchase_price: Number(p_building_purchase_price.value),
+    has_rental_properties: p_has_rental_properties.value === "true",
+    real_estate_professional_hours: Number(p_real_estate_professional_hours.value),
+    planned_equipment_purchase: Number(p_planned_equipment_purchase.value)
+  };
+  try {
+    const res = await fetch(`${BASE}/clients/${p_client_id.value}/questionnaire/personal`, {
+      method: "POST", headers: {"Content-Type": "application/json", ...HDRS}, body: JSON.stringify(body)
+    });
+    const data = await res.json();
+    if (!res.ok) return toast(p_out, JSON.stringify(data), "err");
+    toast(p_out, "Personal questionnaire saved.", "ok");
+    markStepDone(2);
+  } catch (e) { toast(p_out, e.message, "err"); }
+}
+
+async function submitFinancial() {
+  const body = {
+    current_securities_investments: Number(f_current_securities_investments.value),
+    c_corp_retained_earnings: Number(f_c_corp_retained_earnings.value),
+    estimated_net_worth_range: f_estimated_net_worth_range.value
+  };
+  try {
+    const res = await fetch(`${BASE}/clients/${f_client_id.value}/questionnaire/financial`, {
+      method: "POST", headers: {"Content-Type": "application/json", ...HDRS}, body: JSON.stringify(body)
+    });
+    const data = await res.json();
+    if (!res.ok) return toast(f_out, JSON.stringify(data), "err");
+    toast(f_out, "Financial questionnaire saved.", "ok");
+    markStepDone(3);
+  } catch (e) { toast(f_out, e.message, "err"); }
+}
+
+async function uploadDoc() {
+  if (!d_file.files[0]) return toast(d_out, "Choose a PDF file first.", "err");
+  const btn = document.getElementById("d_btn_content");
+  btn.innerHTML = '<span class="spinner"></span> Extracting...';
+  const formData = new FormData();
+  formData.append("file", d_file.files[0]);
+  try {
+    const res = await fetch(`${BASE}/clients/${d_client_id.value}/documents`, { method: "POST", headers: HDRS, body: formData });
+    const data = await res.json();
+    if (!res.ok) { toast(d_out, JSON.stringify(data), "err"); return; }
+    toast(d_out, `Document processed — status: ${data.status}`, "ok");
+    markStepDone(4);
+  } catch (e) { toast(d_out, e.message, "err"); }
+  finally { btn.textContent = "Upload & Extract"; }
+}
+
+async function generateReport() {
+  const btn = document.getElementById("r_btn");
+  const content = document.getElementById("r_btn_content");
+  btn.disabled = true;
+  content.innerHTML = '<span class="spinner"></span> Analyzing...';
+  toast(r_out, "Running rule engine + Graph RAG + AI analysis...", "ok");
+  document.getElementById("report-output").style.display = "none";
+
+  try {
+    const res = await fetch(`${BASE}/clients/${r_client_id.value}/generate-report`, { method: "POST", headers: HDRS });
+    const data = await res.json();
+    if (!res.ok) { toast(r_out, JSON.stringify(data), "err"); return; }
+    toast(r_out, `Report #${data.report_id} generated — ${data.matched_strategies.length} strategies matched.`, "ok");
+    lastReportId = data.report_id;
+    lastClientId = r_client_id.value;
+    markStepDone(5);
+    renderReport(data.report);
+  } catch (e) {
+    toast(r_out, e.message, "err");
+  } finally {
+    btn.disabled = false;
+    content.textContent = "Generate Strategy Report";
+  }
+}
+
+function markStepDone(n) {
+  document.querySelectorAll(".step-pill").forEach(p => {
+    const step = Number(p.dataset.step);
+    p.classList.remove("active");
+    if (step < n) p.classList.add("done");
+    if (step === n) p.classList.add("done");
+    if (step === n + 1) p.classList.add("active");
+  });
+}
+
+function fmtMoney(n) {
+  if (n === undefined || n === null || isNaN(n)) return "—";
+  return "$" + Number(n).toLocaleString();
+}
+
+function renderReport(report) {
+  const box = document.getElementById("report-output");
+  const totalLow = report.estimated_total_savings_low || 0;
+  const totalHigh = report.estimated_total_savings_high || 0;
+  const risk = report.risk_level || "Medium";
+  const strategies = report.strategies || [];
+  const initials = (lastClientId ? "C" + lastClientId : "C");
+
+  let html = `
+    <div class="hero-quote">
+      <div class="eyebrow">AI Strategy Report</div>
+      <blockquote>${report.executive_summary || ""}</blockquote>
+      <div class="author">
+        <div class="author-avatar">${initials}</div>
+        <div>
+          <div class="author-name">Report #${lastReportId}</div>
+          <div class="author-role">Generated by TaxTruth AI</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-num">${fmtMoney(totalLow)}–${fmtMoney(totalHigh)}</div>
+        <div class="stat-title">Estimated Annual Savings</div>
+        <div class="stat-desc">Combined potential tax savings across all matched strategies for this filing year.</div>
+        <div class="stat-brand"><svg class="icon" width="18" height="18" style="width:14px;height:14px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.5c0-1.5 1.2-2.5 2.5-2.5s2.5.8 2.5 2c0 3-5 1.5-5 4.5 0 1.2 1.2 2 2.5 2s2.5-1 2.5-2.5"/></svg> TaxTruth</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">${strategies.length}</div>
+        <div class="stat-title">Strategies Matched</div>
+        <div class="stat-desc">Eligible strategies identified by the rule engine from your questionnaire and documents.</div>
+        <div class="stat-brand"><svg class="icon" width="18" height="18" style="width:14px;height:14px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="6" y1="20" x2="6" y2="12"/><line x1="12" y1="20" x2="12" y2="7"/><line x1="18" y1="20" x2="18" y2="14"/></svg> TaxTruth</div>
+      </div>
+      <div class="stat-card">
+        <div class="risk-badge ${risk}" style="font-size:16px;padding:6px 16px;">${risk} Risk</div>
+        <div class="stat-title" style="margin-top:14px;">Overall Compliance Risk</div>
+        <div class="stat-desc">${report.risk_notes || ""}</div>
+        <div class="stat-brand"><svg class="icon" width="18" height="18" style="width:14px;height:14px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/><circle cx="12" cy="17" r="0.6" fill="currentColor"/></svg> TaxTruth</div>
+      </div>
+    </div>
+
+    <div class="card chart-card">
+      <div class="section-title"><svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg> Estimated Savings by Strategy</div>
+      <div class="chart-wrap"><canvas id="savingsChart"></canvas></div>
+    </div>
+  `;
+
+  if (report.current_tax_liability !== undefined) {
+    html += `
+      <div class="card">
+        <div class="section-title"><svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/></svg> Tax Liability Overview</div>
+        <table style="width:100%;border-collapse:collapse;font-size:13.5px;">
+          <tr style="background:var(--gray-100);"><th style="text-align:left;padding:10px 12px;">Category</th><th style="text-align:left;padding:10px 12px;">Current</th><th style="text-align:left;padding:10px 12px;">Optimized</th></tr>
+          <tr style="border-top:1px solid var(--border);"><td style="padding:10px 12px;">Estimated Tax Liability</td><td style="padding:10px 12px;">${fmtMoney(report.current_tax_liability)}</td><td style="padding:10px 12px;color:var(--green-dark);font-weight:700;">${fmtMoney(report.optimized_tax_liability)}</td></tr>
+        </table>
+      </div>
+    `;
+  }
+
+  html += `
+    <div class="card">
+      <div class="section-title"><svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg> Recommended Strategies</div>
+  `;
+
+  strategies.forEach(s => {
+    const low = s.estimated_savings_low || 0, high = s.estimated_savings_high || 0;
+    const srisk = s.risk_level || "Low";
+    html += `
+      <div class="strategy-item">
+        <div class="strategy-top">
+          <h3>${s.name}</h3>
+          <div class="strategy-badges">
+            <span class="savings-badge">${fmtMoney(low)}–${fmtMoney(high)}</span>
+            <span class="risk-badge ${srisk}">${srisk}</span>
+          </div>
+        </div>
+        <div class="strategy-field"><b>What it is</b>${s.what_it_is || ""}</div>
+        <div class="strategy-field"><b>Why you qualify</b>${s.why_you_qualify || ""}</div>
+        <div class="strategy-field"><b>Estimated impact</b>${s.estimated_impact || ""}</div>
+        <div class="strategy-field"><b>Implementation notes</b>${s.implementation_notes || ""}</div>
+      </div>
+    `;
+  });
+  html += `</div>`;
+
+  const riskItems = report.risk_assessment || [];
+  if (riskItems.length) {
+    html += `
+      <div class="card">
+        <div class="section-title"><svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l10 18H2L12 3z"/><line x1="12" y1="10" x2="12" y2="14"/></svg> Risk Assessment</div>
+        <table style="width:100%;border-collapse:collapse;font-size:13px;">
+          <tr style="background:var(--gray-100);">
+            <th style="text-align:left;padding:9px 10px;">Item</th><th style="text-align:left;padding:9px 10px;">Risk</th>
+            <th style="text-align:left;padding:9px 10px;">IRS Scrutiny</th><th style="text-align:left;padding:9px 10px;">Documentation Needed</th>
+          </tr>
+          ${riskItems.map(r => `
+            <tr style="border-top:1px solid var(--border);">
+              <td style="padding:9px 10px;">${r.item || ""}</td>
+              <td style="padding:9px 10px;"><span class="risk-badge ${r.risk_level || 'Low'}">${r.risk_level || 'Low'}</span></td>
+              <td style="padding:9px 10px;color:var(--gray-600);">${r.irs_scrutiny || ""}</td>
+              <td style="padding:9px 10px;color:var(--gray-600);">${r.documentation_needed || ""}</td>
+            </tr>
+          `).join("")}
+        </table>
+      </div>
+    `;
+  }
+
+  const missingDocs = report.missing_documentation || [];
+  const scenarios = report.scenario_planning || [];
+  if (missingDocs.length || scenarios.length) {
+    html += `<div class="feature-grid">`;
+    if (missingDocs.length) {
+      html += `
+        <div class="feature-item">
+          <div class="feature-icon"><svg class="icon" width="18" height="18" style="width:16px;height:16px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 3h7l5 5v13a1 1 0 01-1 1H7a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M14 3v5h5"/></svg></div>
+          <div><h4>Missing Documentation</h4><p>${missingDocs.join(", ")}</p></div>
+        </div>
+      `;
+    }
+    if (scenarios.length) {
+      html += `
+        <div class="feature-item">
+          <div class="feature-icon"><svg class="icon" width="18" height="18" style="width:16px;height:16px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 8-8"/></svg></div>
+          <div><h4>Scenario Planning</h4><p>${scenarios.map(s => `${s.scenario}: ${fmtMoney(s.tax_liability)}`).join(" · ")}</p></div>
+        </div>
+      `;
+    }
+    html += `</div>`;
+  }
+
+  html += `<div class="card"><div class="section-title"><svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Prioritized Action Plan</div>`;
+  (report.action_plan || []).forEach(a => {
+    html += `
+      <div class="action-plan-item">
+        <div class="priority-badge">${a.priority}</div>
+        <div><b>${a.strategy}</b><br><span style="color:var(--gray-500)">${a.reason || ""}${a.deadline ? " · Deadline: " + a.deadline : ""}</span></div>
+      </div>
+    `;
+  });
+
+  const longTerm = report.long_term_strategy || [];
+  if (longTerm.length) {
+    html += `<div class="section-title" style="margin-top:22px;"><svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg> Long-Term Strategy (3-5 Years)</div>`;
+    longTerm.forEach(item => {
+      html += `<div class="strategy-field" style="margin-bottom:6px;">&bull; ${item}</div>`;
+    });
+  }
+
+  html += `
+      <div class="disclaimer">${report.disclaimer || ""}</div>
+      <div class="export-row">
+        <button onclick="exportReport('pdf')"><svg class="icon" width="18" height="18" style="width:15px;height:15px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg> Export PDF</button>
+        <button class="secondary" onclick="exportReport('docx')"><svg class="icon" width="18" height="18" style="width:15px;height:15px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg> Export Word</button>
+      </div>
+    </div>
+  `;
+
+  box.innerHTML = html;
+  box.style.display = "block";
+  box.scrollIntoView({ behavior: "smooth" });
+
+  const ctx = document.getElementById("savingsChart");
+  new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: strategies.map(s => s.name.length > 22 ? s.name.slice(0,20)+"…" : s.name),
+      datasets: [{
+        label: "Estimated Savings (High)",
+        data: strategies.map(s => s.estimated_savings_high || 0),
+        backgroundColor: "#0fa958",
+        borderRadius: 6,
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: { y: { beginAtZero: true, ticks: { callback: v => "$" + v.toLocaleString() } } }
+    }
+  });
+}
+
+async function exportReport(format) {
+  if (!lastReportId) return;
+  window.open(`${BASE}/clients/${lastClientId}/reports/${lastReportId}/export?format=${format}&api_key=${API_KEY}`, "_blank");
+}
+</script>
+
+</body>
+</html>

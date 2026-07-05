@@ -1,0 +1,1432 @@
+[
+  {
+    "id": 1,
+    "name": "S-Corp Reasonable Compensation Planning",
+    "rule_definition": {
+      "all": [
+        {"field": "has_1120s", "op": "eq", "value": true},
+        {"field": "s_corp_officer_comp", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "name": "Cost Segregation",
+    "rule_definition": {
+      "all": [
+        {"field": "owns_practice_building", "op": "eq", "value": true},
+        {"field": "building_purchase_price", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "name": "Real Estate Professional Status (IRC §469)",
+    "rule_definition": {
+      "all": [
+        {"field": "has_rental_properties", "op": "eq", "value": true},
+        {"field": "real_estate_professional_hours", "op": "gte", "value": 750}
+      ]
+    }
+  },
+  {
+    "id": 4,
+    "name": "Hire Children Under 18",
+    "rule_definition": {
+      "all": [
+        {"field": "no_of_children", "op": "gt", "value": 0},
+        {"any": [
+          {"field": "business_structure", "op": "eq", "value": "Sole proprietorship"},
+          {"field": "has_1065", "op": "eq", "value": true}
+        ]}
+      ]
+    }
+  },
+  {
+    "id": 5,
+    "name": "Hiring Spouse in the Business",
+    "rule_definition": {
+      "all": [
+        {"field": "spouse_works_in_practice", "op": "eq", "value": false},
+        {"field": "spouse_annual_compensation", "op": "eq", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 6,
+    "name": "Section 179 Equipment Deduction",
+    "rule_definition": {
+      "all": [
+        {"field": "planned_equipment_purchase", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 7,
+    "name": "Defined Benefit Plan",
+    "rule_definition": {
+      "all": [
+        {"field": "client_annual_compensation", "op": "gte", "value": 200000},
+        {"field": "employees_count", "op": "lte", "value": 10}
+      ]
+    }
+  },
+  {
+    "id": 8,
+    "name": "NIIT Avoidance",
+    "rule_definition": {
+      "all": [
+        {"field": "household_income", "op": "gt", "value": 250000},
+        {"field": "current_securities_investments", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 9,
+    "name": "Solo 401(k)",
+    "rule_definition": {
+      "all": [
+        {"field": "employees_count", "op": "lte", "value": 0},
+        {"field": "client_annual_compensation", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 10,
+    "name": "SEP IRA",
+    "rule_definition": {
+      "all": [
+        {"field": "employees_count", "op": "lte", "value": 5},
+        {"field": "client_annual_compensation", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 11,
+    "name": "SIMPLE IRA",
+    "rule_definition": {
+      "all": [
+        {"field": "employees_count", "op": "gt", "value": 1},
+        {"field": "employees_count", "op": "lte", "value": 100}
+      ]
+    }
+  },
+  {
+    "id": 12,
+    "name": "Cash Balance Plan — IRC §401(a)",
+    "rule_definition": {
+      "all": [
+        {"field": "client_annual_compensation", "op": "gte", "value": 250000},
+        {"field": "planning_retirement", "op": "eq", "value": true}
+      ]
+    }
+  },
+  {
+    "id": 13,
+    "name": "Profit-Sharing Retirement Plan",
+    "rule_definition": {
+      "all": [
+        {"field": "employees_count", "op": "gt", "value": 0},
+        {"field": "s_corp_distributions", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 14,
+    "name": "Backdoor Roth IRA",
+    "rule_definition": {
+      "all": [
+        {"field": "household_income", "op": "gt", "value": 240000}
+      ]
+    }
+  },
+  {
+    "id": 15,
+    "name": "Mega Backdoor Roth",
+    "rule_definition": {
+      "all": [
+        {"field": "client_annual_compensation", "op": "gte", "value": 150000},
+        {"field": "employees_count", "op": "gte", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 16,
+    "name": "Roth Conversion Ladder",
+    "rule_definition": {
+      "all": [
+        {"field": "planning_retirement", "op": "eq", "value": true}
+      ]
+    }
+  },
+  {
+    "id": 17,
+    "name": "Roth Conversions During Low-Income Years",
+    "rule_definition": {
+      "all": [
+        {"field": "nol_carryover_amount", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 18,
+    "name": "Health Savings Account (HSA) Optimization",
+    "rule_definition": {
+      "all": [
+        {"field": "monthly_medical_insurance", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 19,
+    "name": "S-Corp Health Reimbursement Arrangement (QSEHRA)",
+    "rule_definition": {
+      "all": [
+        {"field": "has_1120s", "op": "eq", "value": true},
+        {"field": "employees_count", "op": "lte", "value": 25}
+      ]
+    }
+  },
+  {
+    "id": 20,
+    "name": "S-Corp 2% Shareholder Health Deduction",
+    "rule_definition": {
+      "all": [
+        {"field": "has_1120s", "op": "eq", "value": true},
+        {"field": "monthly_medical_insurance", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 21,
+    "name": "Self-Employed Health Insurance Premium Deduction",
+    "rule_definition": {
+      "all": [
+        {"field": "business_structure", "op": "eq", "value": "Sole proprietorship"},
+        {"field": "monthly_medical_insurance", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 22,
+    "name": "Small Business Health Insurance Tax Credit",
+    "rule_definition": {
+      "all": [
+        {"field": "employees_count", "op": "gt", "value": 0},
+        {"field": "employees_count", "op": "lte", "value": 25}
+      ]
+    }
+  },
+  {
+    "id": 23,
+    "name": "Home Office / Administrative Office Deduction",
+    "rule_definition": {
+      "all": [
+        {"field": "owns_home", "op": "eq", "value": true},
+        {"field": "primary_business_name", "op": "ne", "value": ""}
+      ]
+    }
+  },
+  {
+    "id": 24,
+    "name": "Business Use of Personal Vehicle Deduction",
+    "rule_definition": {
+      "all": [
+        {"field": "primary_business_name", "op": "ne", "value": ""}
+      ]
+    }
+  },
+  {
+    "id": 25,
+    "name": "Business Travel Expenses",
+    "rule_definition": {
+      "all": [
+        {"field": "primary_business_name", "op": "ne", "value": ""}
+      ]
+    }
+  },
+  {
+    "id": 26,
+    "name": "Accountable Plan (Reimbursement Plan)",
+    "rule_definition": {
+      "all": [
+        {"field": "employees_count", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 27,
+    "name": "Augusta Rule (IRC §280A(g))",
+    "rule_definition": {
+      "all": [
+        {"field": "owns_home", "op": "eq", "value": true},
+        {"field": "primary_business_name", "op": "ne", "value": ""}
+      ]
+    }
+  },
+  {
+    "id": 28,
+    "name": "Short-Term Rentals (Active Participation Strategy)",
+    "rule_definition": {
+      "all": [
+        {"field": "has_short_term_rental", "op": "eq", "value": true}
+      ]
+    }
+  },
+  {
+    "id": 29,
+    "name": "Vacation / Second Home Business Strategy",
+    "rule_definition": {
+      "all": [
+        {"field": "owns_secondary_home", "op": "eq", "value": true}
+      ]
+    }
+  },
+  {
+    "id": 30,
+    "name": "1031 Exchange",
+    "rule_definition": {
+      "all": [
+        {"field": "has_rental_properties", "op": "eq", "value": true}
+      ]
+    }
+  },
+  {
+    "id": 31,
+    "name": "Bonus Depreciation Strategy — §168(k)",
+    "rule_definition": {
+      "all": [
+        {"field": "planned_equipment_purchase", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 32,
+    "name": "Section 280F — Luxury Auto Depreciation Cap",
+    "rule_definition": {
+      "all": [
+        {"field": "owns_boat_or_yacht", "op": "eq", "value": false},
+        {"field": "planned_equipment_purchase", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 33,
+    "name": "Accelerated Depreciation via Leasehold Improvements",
+    "rule_definition": {
+      "all": [
+        {"field": "owns_practice_building", "op": "eq", "value": false},
+        {"field": "annual_equipment_lease_payments", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 34,
+    "name": "Qualified Improvement Property (QIP) — Depreciation in Loss Year",
+    "rule_definition": {
+      "all": [
+        {"field": "nol_carryover_amount", "op": "gt", "value": 0},
+        {"field": "owns_practice_building", "op": "eq", "value": true}
+      ]
+    }
+  },
+  {
+    "id": 35,
+    "name": "NOL Carryforward Optimization & Utilization Planning (§172)",
+    "rule_definition": {
+      "all": [
+        {"field": "nol_carryover_amount", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 36,
+    "name": "Excess Business Loss Limitation Planning (§461(l))",
+    "rule_definition": {
+      "all": [
+        {"field": "nol_carryover_amount", "op": "gt", "value": 0},
+        {"field": "household_income", "op": "gt", "value": 500000}
+      ]
+    }
+  },
+  {
+    "id": 37,
+    "name": "Passive Activity Loss — §469 Grouping Election",
+    "rule_definition": {
+      "all": [
+        {"field": "has_rental_properties", "op": "eq", "value": true},
+        {"field": "rental_property_count", "op": "gt", "value": 1}
+      ]
+    }
+  },
+  {
+    "id": 38,
+    "name": "Self-Rental Grouping Strategy",
+    "rule_definition": {
+      "all": [
+        {"field": "owns_practice_building", "op": "eq", "value": true},
+        {"field": "primary_business_name", "op": "ne", "value": ""}
+      ]
+    }
+  },
+  {
+    "id": 39,
+    "name": "QBI Deduction Optimization",
+    "rule_definition": {
+      "any": [
+        {"field": "has_1120s", "op": "eq", "value": true},
+        {"field": "has_1065", "op": "eq", "value": true},
+        {"field": "business_structure", "op": "eq", "value": "Sole proprietorship"}
+      ]
+    }
+  },
+  {
+    "id": 40,
+    "name": "Maximizing QBI via Entity Restructure",
+    "rule_definition": {
+      "all": [
+        {"field": "household_income", "op": "gt", "value": 364200},
+        {"field": "business_structure", "op": "ne", "value": "C Corporation"}
+      ]
+    }
+  },
+  {
+    "id": 41,
+    "name": "Schedule C → S-Corp Conversion (SE Tax Protection)",
+    "rule_definition": {
+      "all": [
+        {"field": "business_structure", "op": "eq", "value": "Sole proprietorship"},
+        {"field": "household_income", "op": "gt", "value": 80000}
+      ]
+    }
+  },
+  {
+    "id": 42,
+    "name": "S-Corporation to C-Corp (Profit Protection Strategy)",
+    "rule_definition": {
+      "all": [
+        {"field": "has_1120s", "op": "eq", "value": true},
+        {"field": "c_corp_retained_earnings_actual", "op": "eq", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 43,
+    "name": "C-Corp Dividends Planning",
+    "rule_definition": {
+      "all": [
+        {"field": "has_1120", "op": "eq", "value": true}
+      ]
+    }
+  },
+  {
+    "id": 44,
+    "name": "Fringe Benefits (For C-corporations)",
+    "rule_definition": {
+      "all": [
+        {"field": "has_1120", "op": "eq", "value": true}
+      ]
+    }
+  },
+  {
+    "id": 45,
+    "name": "Group Health Insurance via C-Corp",
+    "rule_definition": {
+      "all": [
+        {"field": "has_1120", "op": "eq", "value": true},
+        {"field": "employees_count", "op": "gt", "value": 1}
+      ]
+    }
+  },
+  {
+    "id": 46,
+    "name": "Management Company Structure",
+    "rule_definition": {
+      "all": [
+        {"field": "management_company_revenue", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 47,
+    "name": "Family Management Company",
+    "rule_definition": {
+      "all": [
+        {"field": "management_company_revenue", "op": "gt", "value": 0},
+        {"field": "no_of_children", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 48,
+    "name": "Holding Company Structure",
+    "rule_definition": {
+      "all": [
+        {"field": "secondary_business_ownership", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 49,
+    "name": "Entity Structuring & Layering (Income Shifting)",
+    "rule_definition": {
+      "all": [
+        {"field": "secondary_business_ownership", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 50,
+    "name": "Entity Classification Election (Check-the-Box)",
+    "rule_definition": {
+      "all": [
+        {"field": "has_1065", "op": "eq", "value": true}
+      ]
+    }
+  },
+  {
+    "id": 51,
+    "name": "754 Basis Adjustment Election for Partnerships",
+    "rule_definition": {
+      "all": [
+        {"field": "has_1065", "op": "eq", "value": true}
+      ]
+    }
+  },
+  {
+    "id": 52,
+    "name": "704(d) Partner Basis Limitation Review",
+    "rule_definition": {
+      "all": [
+        {"field": "has_1065", "op": "eq", "value": true},
+        {"field": "partnership_guaranteed_payments", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 53,
+    "name": "§1366(d) Shareholder Basis Limitation Optimization",
+    "rule_definition": {
+      "all": [
+        {"field": "has_1120s", "op": "eq", "value": true}
+      ]
+    }
+  },
+  {
+    "id": 54,
+    "name": "§465 At-Risk Limitation Planning",
+    "rule_definition": {
+      "all": [
+        {"field": "nol_carryover_amount", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 55,
+    "name": "Installment Sales to Defer Capital Gains",
+    "rule_definition": {
+      "all": [
+        {"field": "has_form_6252", "op": "eq", "value": true}
+      ]
+    }
+  },
+  {
+    "id": 56,
+    "name": "Section 453A Interest Charge Planning (Large Installments)",
+    "rule_definition": {
+      "all": [
+        {"field": "installment_sale_proceeds", "op": "gt", "value": 5000000}
+      ]
+    }
+  },
+  {
+    "id": 57,
+    "name": "1033 Involuntary Conversion Deferral",
+    "rule_definition": {
+      "all": [
+        {"field": "section_1231_gain", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 58,
+    "name": "1202 Gain Exclusion Stacking via Multiple Entities",
+    "rule_definition": {
+      "all": [
+        {"field": "practice_sale_planned", "op": "eq", "value": true},
+        {"field": "has_1120", "op": "eq", "value": true}
+      ]
+    }
+  },
+  {
+    "id": 59,
+    "name": "Section 1244 Stock Loss Deduction",
+    "rule_definition": {
+      "all": [
+        {"field": "has_1120", "op": "eq", "value": true},
+        {"field": "nol_carryover_amount", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 60,
+    "name": "1042 Rollover (Sale to ESOP)",
+    "rule_definition": {
+      "all": [
+        {"field": "practice_sale_planned", "op": "eq", "value": true}
+      ]
+    }
+  },
+  {
+    "id": 61,
+    "name": "ESOP (Employee Stock Ownership Plan) Setup",
+    "rule_definition": {
+      "all": [
+        {"field": "practice_sale_planned", "op": "eq", "value": true},
+        {"field": "employees_count", "op": "gt", "value": 5}
+      ]
+    }
+  },
+  {
+    "id": 62,
+    "name": "Installment Sale to ESOP with §1042 Rollover",
+    "rule_definition": {
+      "all": [
+        {"field": "practice_sale_planned", "op": "eq", "value": true},
+        {"field": "has_form_6252", "op": "eq", "value": true}
+      ]
+    }
+  },
+  {
+    "id": 63,
+    "name": "Deferred Sales Trust (DST)",
+    "rule_definition": {
+      "all": [
+        {"field": "practice_sale_planned", "op": "eq", "value": true}
+      ]
+    }
+  },
+  {
+    "id": 64,
+    "name": "Asset Sale to Intentionally Defective Grantor Trust (IDGT)",
+    "rule_definition": {
+      "all": [
+        {"field": "practice_sale_planned", "op": "eq", "value": true},
+        {"field": "long_term_financial_goals", "op": "ne", "value": ""}
+      ]
+    }
+  },
+  {
+    "id": 65,
+    "name": "Tax-Efficient Sale via Grantor Retained Annuity Trust (GRAT)",
+    "rule_definition": {
+      "all": [
+        {"field": "practice_sale_planned", "op": "eq", "value": true}
+      ]
+    }
+  },
+  {
+    "id": 66,
+    "name": "Grantor Retained Income Trust (GRIT)",
+    "rule_definition": {
+      "all": [
+        {"field": "practice_sale_planned", "op": "eq", "value": true}
+      ]
+    }
+  },
+  {
+    "id": 67,
+    "name": "Private Annuity Sale to Children",
+    "rule_definition": {
+      "all": [
+        {"field": "no_of_children", "op": "gt", "value": 0},
+        {"field": "practice_sale_planned", "op": "eq", "value": true}
+      ]
+    }
+  },
+  {
+    "id": 68,
+    "name": "Intra-Family Loans with AFR",
+    "rule_definition": {
+      "all": [
+        {"field": "no_of_children", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 69,
+    "name": "Family Limited Partnership (FLP)",
+    "rule_definition": {
+      "all": [
+        {"field": "no_of_children", "op": "gt", "value": 0},
+        {"field": "estimated_net_worth_range", "op": "ne", "value": ""}
+      ]
+    }
+  },
+  {
+    "id": 70,
+    "name": "Dynasty Trust for Multi-Gen Wealth Transfer",
+    "rule_definition": {
+      "all": [
+        {"field": "no_of_children", "op": "gt", "value": 0},
+        {"field": "estimated_net_worth_range", "op": "ne", "value": ""}
+      ]
+    }
+  },
+  {
+    "id": 71,
+    "name": "Credit Shelter Trust (Bypass Trust)",
+    "rule_definition": {
+      "all": [
+        {"field": "spouse_name", "op": "ne", "value": ""}
+      ]
+    }
+  },
+  {
+    "id": 72,
+    "name": "Irrevocable Life Insurance Trust (ILIT)",
+    "rule_definition": {
+      "all": [
+        {"field": "has_life_insurance", "op": "eq", "value": true}
+      ]
+    }
+  },
+  {
+    "id": 73,
+    "name": "Life Insurance Death Benefit Estate Exclusion",
+    "rule_definition": {
+      "all": [
+        {"field": "has_life_insurance", "op": "eq", "value": true},
+        {"field": "death_benefit_amount", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 74,
+    "name": "Employer-Provided Life Insurance",
+    "rule_definition": {
+      "all": [
+        {"field": "employees_count", "op": "gt", "value": 0},
+        {"field": "has_life_insurance", "op": "eq", "value": false}
+      ]
+    }
+  },
+  {
+    "id": 75,
+    "name": "Key-Person Insurance Deduction",
+    "rule_definition": {
+      "all": [
+        {"field": "employees_count", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 76,
+    "name": "Buy-Sell Stock Redemption with Life Insurance",
+    "rule_definition": {
+      "all": [
+        {"field": "secondary_business_ownership", "op": "gt", "value": 0},
+        {"field": "has_life_insurance", "op": "eq", "value": true}
+      ]
+    }
+  },
+  {
+    "id": 77,
+    "name": "Executive Bonus Plan (with Gross-Up)",
+    "rule_definition": {
+      "all": [
+        {"field": "employees_count", "op": "gt", "value": 1}
+      ]
+    }
+  },
+  {
+    "id": 78,
+    "name": "Non-Qualified Deferred Compensation (NQDC) Plan",
+    "rule_definition": {
+      "all": [
+        {"field": "client_annual_compensation", "op": "gt", "value": 300000}
+      ]
+    }
+  },
+  {
+    "id": 79,
+    "name": "457(b) Non-Governmental Deferred Comp Plan",
+    "rule_definition": {
+      "all": [
+        {"field": "client_annual_compensation", "op": "gt", "value": 300000}
+      ]
+    }
+  },
+  {
+    "id": 80,
+    "name": "Private Placement Life Insurance (PPLI)",
+    "rule_definition": {
+      "all": [
+        {"field": "estimated_net_worth_range", "op": "ne", "value": ""},
+        {"field": "current_securities_investments", "op": "gt", "value": 1000000}
+      ]
+    }
+  },
+  {
+    "id": 81,
+    "name": "Insurance-Dedicated Fund (IDF) within PPLI",
+    "rule_definition": {
+      "all": [
+        {"field": "current_securities_investments", "op": "gt", "value": 1000000}
+      ]
+    }
+  },
+  {
+    "id": 82,
+    "name": "Deduction Bunching with Donor-Advised Fund",
+    "rule_definition": {
+      "all": [
+        {"field": "household_income", "op": "gt", "value": 200000}
+      ]
+    }
+  },
+  {
+    "id": 83,
+    "name": "Charitable Contributions Strategy",
+    "rule_definition": {
+      "all": [
+        {"field": "household_income", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 84,
+    "name": "Charitable Lead Annuity Trust (CLAT)",
+    "rule_definition": {
+      "all": [
+        {"field": "household_income", "op": "gt", "value": 500000}
+      ]
+    }
+  },
+  {
+    "id": 85,
+    "name": "Private Family Foundation",
+    "rule_definition": {
+      "all": [
+        {"field": "estimated_net_worth_range", "op": "ne", "value": ""},
+        {"field": "household_income", "op": "gt", "value": 1000000}
+      ]
+    }
+  },
+  {
+    "id": 86,
+    "name": "Conservation Easement with Mineral Rights Retained",
+    "rule_definition": {
+      "all": [
+        {"field": "hasRentalProperties", "op": "eq", "value": true}
+      ]
+    }
+  },
+  {
+    "id": 87,
+    "name": "Mineral Rights Charitable Donation",
+    "rule_definition": {
+      "all": [
+        {"field": "estimated_net_worth_range", "op": "ne", "value": ""}
+      ]
+    }
+  },
+  {
+    "id": 88,
+    "name": "Oil & Gas Intangible Drilling Costs (IDC)",
+    "rule_definition": {
+      "all": [
+        {"field": "household_income", "op": "gt", "value": 300000}
+      ]
+    }
+  },
+  {
+    "id": 89,
+    "name": "Opportunity Zone Step-Up in Basis",
+    "rule_definition": {
+      "all": [
+        {"field": "section_1231_gain", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 90,
+    "name": "Qualified Opportunity Zone Investment — Capital Gain Deferral in Loss Year",
+    "rule_definition": {
+      "all": [
+        {"field": "section_1231_gain", "op": "gt", "value": 0},
+        {"field": "nol_carryover_amount", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 91,
+    "name": "State Tax Deduction Workaround (SALT Cap)",
+    "rule_definition": {
+      "any": [
+        {"field": "has_1120s", "op": "eq", "value": true},
+        {"field": "has_1065", "op": "eq", "value": true}
+      ]
+    }
+  },
+  {
+    "id": 92,
+    "name": "IC-DISC Export Income Deduction",
+    "rule_definition": {
+      "all": [
+        {"field": "primary_business_name", "op": "ne", "value": ""},
+        {"field": "household_income", "op": "gt", "value": 300000}
+      ]
+    }
+  },
+  {
+    "id": 93,
+    "name": "Research & Development Tax Credit",
+    "rule_definition": {
+      "all": [
+        {"field": "employees_count", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 94,
+    "name": "Domestic Production Deduction for Film/TV",
+    "rule_definition": {
+      "all": [
+        {"field": "primary_business_name", "op": "ne", "value": ""}
+      ]
+    }
+  },
+  {
+    "id": 95,
+    "name": "Film & Media Production Tax Incentives",
+    "rule_definition": {
+      "all": [
+        {"field": "primary_business_name", "op": "ne", "value": ""}
+      ]
+    }
+  },
+  {
+    "id": 96,
+    "name": "Domestic Production Activities Deduction",
+    "rule_definition": {
+      "all": [
+        {"field": "primary_business_name", "op": "ne", "value": ""}
+      ]
+    }
+  },
+  {
+    "id": 97,
+    "name": "Foreign Tax Credit",
+    "rule_definition": {
+      "all": [
+        {"field": "current_securities_investments", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 98,
+    "name": "Offshore Trust with U.S. Reporting Compliance",
+    "rule_definition": {
+      "all": [
+        {"field": "estimated_net_worth_range", "op": "ne", "value": ""}
+      ]
+    }
+  },
+  {
+    "id": 99,
+    "name": "Delaware Incomplete Non-Grantor Trust (DING)",
+    "rule_definition": {
+      "all": [
+        {"field": "household_income", "op": "gt", "value": 500000}
+      ]
+    }
+  },
+  {
+    "id": 100,
+    "name": "Asset Protection Trust Structure (DAPT)",
+    "rule_definition": {
+      "all": [
+        {"field": "estimated_net_worth_range", "op": "ne", "value": ""}
+      ]
+    }
+  },
+  {
+    "id": 101,
+    "name": "Captive Insurance (831(b))",
+    "rule_definition": {
+      "all": [
+        {"field": "household_income", "op": "gt", "value": 500000}
+      ]
+    }
+  },
+  {
+    "id": 102,
+    "name": "Business Interest Deduction Optimization",
+    "rule_definition": {
+      "all": [
+        {"field": "primary_business_name", "op": "ne", "value": ""}
+      ]
+    }
+  },
+  {
+    "id": 103,
+    "name": "Home Equity Loan Interest Deduction (Biz)",
+    "rule_definition": {
+      "all": [
+        {"field": "owns_home", "op": "eq", "value": true},
+        {"field": "primary_business_name", "op": "ne", "value": ""}
+      ]
+    }
+  },
+  {
+    "id": 104,
+    "name": "Business Credit Card Optimization",
+    "rule_definition": {
+      "all": [
+        {"field": "primary_business_name", "op": "ne", "value": ""}
+      ]
+    }
+  },
+  {
+    "id": 105,
+    "name": "Deducting Start-Up Costs",
+    "rule_definition": {
+      "all": [
+        {"field": "building_placed_in_service_year", "op": "gte", "value": 2024}
+      ]
+    }
+  },
+  {
+    "id": 106,
+    "name": "Prepaid Expenses via Management Company",
+    "rule_definition": {
+      "all": [
+        {"field": "management_company_revenue", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 107,
+    "name": "100% Meals Deduction for Company Parties",
+    "rule_definition": {
+      "all": [
+        {"field": "employees_count", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 108,
+    "name": "Tax-Free Gifts to Employees",
+    "rule_definition": {
+      "all": [
+        {"field": "employees_count", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 109,
+    "name": "Reimbursement of Educational Assistance",
+    "rule_definition": {
+      "all": [
+        {"field": "employees_count", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 110,
+    "name": "Fringe Benefits: Commuter/Transportation",
+    "rule_definition": {
+      "all": [
+        {"field": "employees_count", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 111,
+    "name": "Cafeteria Plan",
+    "rule_definition": {
+      "all": [
+        {"field": "employees_count", "op": "gt", "value": 1}
+      ]
+    }
+  },
+  {
+    "id": 112,
+    "name": "Section §105 Medical Reimbursement Plan HRA Flexibility (QSEHRA, ICHRA, etc.)",
+    "rule_definition": {
+      "all": [
+        {"field": "monthly_medical_insurance", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 113,
+    "name": "401(h) Plan Add-on to DB Plan",
+    "rule_definition": {
+      "all": [
+        {"field": "client_annual_compensation", "op": "gte", "value": 200000}
+      ]
+    }
+  },
+  {
+    "id": 114,
+    "name": "Double-Up 401(k) Contributions for Spouses",
+    "rule_definition": {
+      "all": [
+        {"field": "spouse_works_in_practice", "op": "eq", "value": true}
+      ]
+    }
+  },
+  {
+    "id": 115,
+    "name": "Solo 401(k) / Traditional 401(k) + Profit Sharing",
+    "rule_definition": {
+      "all": [
+        {"field": "employees_count", "op": "lte", "value": 1},
+        {"field": "s_corp_officer_comp", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 116,
+    "name": "Salary + Retirement Plan Restructure",
+    "rule_definition": {
+      "all": [
+        {"field": "has_1120s", "op": "eq", "value": true},
+        {"field": "s_corp_officer_comp", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 117,
+    "name": "In-Plan Roth Rollover",
+    "rule_definition": {
+      "all": [
+        {"field": "planning_retirement", "op": "eq", "value": true}
+      ]
+    }
+  },
+  {
+    "id": 118,
+    "name": "In-Kind Roth Conversion of Appreciated Assets",
+    "rule_definition": {
+      "all": [
+        {"field": "current_securities_investments", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 119,
+    "name": "Net Unrealized Appreciation (NUA) Tax Planning",
+    "rule_definition": {
+      "all": [
+        {"field": "planning_retirement", "op": "eq", "value": true},
+        {"field": "current_securities_investments", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 120,
+    "name": "Self-Directed IRA / Solo 401(k) for RE & Notes",
+    "rule_definition": {
+      "all": [
+        {"field": "has_rental_properties", "op": "eq", "value": true},
+        {"field": "employees_count", "op": "lte", "value": 1}
+      ]
+    }
+  },
+  {
+    "id": 121,
+    "name": "Self-Directed Traditional Retirement Plan",
+    "rule_definition": {
+      "all": [
+        {"field": "employees_count", "op": "lte", "value": 1}
+      ]
+    }
+  },
+  {
+    "id": 122,
+    "name": "412(e)(3) Plans",
+    "rule_definition": {
+      "all": [
+        {"field": "client_annual_compensation", "op": "gte", "value": 200000},
+        {"field": "employees_count", "op": "lte", "value": 5}
+      ]
+    }
+  },
+  {
+    "id": 123,
+    "name": "Qualified Longevity Annuity Contract (QLAC)",
+    "rule_definition": {
+      "all": [
+        {"field": "planning_retirement", "op": "eq", "value": true}
+      ]
+    }
+  },
+  {
+    "id": 124,
+    "name": "Qualified Disability Trust (QDT) Deduction",
+    "rule_definition": {
+      "all": [
+        {"field": "no_of_children", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 125,
+    "name": "Reclassify Income to Capital Gains",
+    "rule_definition": {
+      "all": [
+        {"field": "practice_sale_planned", "op": "eq", "value": true}
+      ]
+    }
+  },
+  {
+    "id": 126,
+    "name": "Rental Loss Offset for Active Participation",
+    "rule_definition": {
+      "all": [
+        {"field": "has_rental_properties", "op": "eq", "value": true},
+        {"field": "household_income", "op": "lte", "value": 150000}
+      ]
+    }
+  },
+  {
+    "id": 127,
+    "name": "Business Use of Home by Partner",
+    "rule_definition": {
+      "all": [
+        {"field": "has_1065", "op": "eq", "value": true},
+        {"field": "owns_home", "op": "eq", "value": true}
+      ]
+    }
+  },
+  {
+    "id": 128,
+    "name": "Self-Rental to Business",
+    "rule_definition": {
+      "all": [
+        {"field": "owns_practice_building", "op": "eq", "value": true}
+      ]
+    }
+  },
+  {
+    "id": 129,
+    "name": "Electing Out of Partnership Treatment",
+    "rule_definition": {
+      "all": [
+        {"field": "has_1065", "op": "eq", "value": true}
+      ]
+    }
+  },
+  {
+    "id": 130,
+    "name": "Tax-Efficient Entity Merger",
+    "rule_definition": {
+      "all": [
+        {"field": "secondary_business_ownership", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 131,
+    "name": "Section 754 Election after Partner Death",
+    "rule_definition": {
+      "all": [
+        {"field": "has_1065", "op": "eq", "value": true}
+      ]
+    }
+  },
+  {
+    "id": 132,
+    "name": "Gifting Appreciated Stock to Family",
+    "rule_definition": {
+      "all": [
+        {"field": "current_securities_investments", "op": "gt", "value": 0},
+        {"field": "no_of_children", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 133,
+    "name": "529 College Savings Plan",
+    "rule_definition": {
+      "all": [
+        {"field": "no_of_children", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 134,
+    "name": "Lifetime Learning Credit",
+    "rule_definition": {
+      "all": [
+        {"field": "no_of_children", "op": "gt", "value": 0},
+        {"field": "household_income", "op": "lte", "value": 180000}
+      ]
+    }
+  },
+  {
+    "id": 135,
+    "name": "American Opportunity Credit",
+    "rule_definition": {
+      "all": [
+        {"field": "no_of_children", "op": "gt", "value": 0},
+        {"field": "household_income", "op": "lte", "value": 180000}
+      ]
+    }
+  },
+  {
+    "id": 136,
+    "name": "Deductible Advisory/Planning Fees",
+    "rule_definition": {
+      "all": [
+        {"field": "advisor_annual_cost", "op": "ne", "value": ""}
+      ]
+    }
+  },
+  {
+    "id": 137,
+    "name": "Intentionally Delaying QCD Recognition",
+    "rule_definition": {
+      "all": [
+        {"field": "planning_retirement", "op": "eq", "value": true},
+        {"field": "household_income", "op": "gt", "value": 100000}
+      ]
+    }
+  },
+  {
+    "id": 138,
+    "name": "Employer 401(k) Match",
+    "rule_definition": {
+      "all": [
+        {"field": "employees_count", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 139,
+    "name": "Corporate Aircraft Deduction",
+    "rule_definition": {
+      "all": [
+        {"field": "household_income", "op": "gt", "value": 1000000}
+      ]
+    }
+  },
+  {
+    "id": 140,
+    "name": "Energy Efficient Home Credit (Builders)",
+    "rule_definition": {
+      "all": [
+        {"field": "ownsPracticeBuilding", "op": "eq", "value": true}
+      ]
+    }
+  },
+  {
+    "id": 141,
+    "name": "Pre-IPO Stock Options & AMT Planning",
+    "rule_definition": {
+      "all": [
+        {"field": "iso_spread_amount", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 142,
+    "name": "§382 NOL Limitation — Ownership Change Risk Assessment",
+    "rule_definition": {
+      "all": [
+        {"field": "nol_carryover_amount", "op": "gt", "value": 0},
+        {"field": "secondary_business_ownership", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 143,
+    "name": "§172 Net Operating Loss Carryforward Planning (C‑Corp)",
+    "rule_definition": {
+      "all": [
+        {"field": "has_1120", "op": "eq", "value": true},
+        {"field": "nol_carryover_amount", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 144,
+    "name": "§168/§168(k) Depreciation Timing Optimization",
+    "rule_definition": {
+      "all": [
+        {"field": "planned_equipment_purchase", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 145,
+    "name": "Bonus Depreciation Timing Election in Loss Year (§168(k))",
+    "rule_definition": {
+      "all": [
+        {"field": "nol_carryover_amount", "op": "gt", "value": 0},
+        {"field": "planned_equipment_purchase", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 146,
+    "name": "Bonus Depreciation on Used Property",
+    "rule_definition": {
+      "all": [
+        {"field": "planned_equipment_purchase", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 147,
+    "name": "Equipment Leasing Under Section 179",
+    "rule_definition": {
+      "all": [
+        {"field": "annual_equipment_lease_payments", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 148,
+    "name": "Partial Asset Sale with Installment + 1031",
+    "rule_definition": {
+      "all": [
+        {"field": "has_form_6252", "op": "eq", "value": true},
+        {"field": "has_rental_properties", "op": "eq", "value": true}
+      ]
+    }
+  },
+  {
+    "id": 149,
+    "name": "Partnership Basis Restoration & §704(d) Loss Planning",
+    "rule_definition": {
+      "all": [
+        {"field": "has_1065", "op": "eq", "value": true},
+        {"field": "nol_carryover_amount", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 150,
+    "name": "S-Corp Shareholder Basis Restoration (§1366(d))",
+    "rule_definition": {
+      "all": [
+        {"field": "has_1120s", "op": "eq", "value": true},
+        {"field": "nol_carryover_amount", "op": "gt", "value": 0}
+      ]
+    }
+  },
+  {
+    "id": 151,
+    "name": "Accountable Plan — Comprehensive Expense Capture in Loss Year",
+    "rule_definition": {
+      "all": [
+        {"field": "nol_carryover_amount", "op": "gt", "value": 0},
+        {"field": "employees_count", "op": "gt", "value": 0}
+      ]
+    }
+  }
+]
